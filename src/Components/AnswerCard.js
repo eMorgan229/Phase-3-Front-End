@@ -1,9 +1,11 @@
 import React from 'react'
 
-function AnswerCard() {
+function AnswerCard({answer}) {
   return (
     <div>AnswerCard
-        <h3>I am the Answer Card Test.</h3>
+        <h3>
+        {answer.answer}
+        </h3>
         <button>like</button>
     </div>
   )
