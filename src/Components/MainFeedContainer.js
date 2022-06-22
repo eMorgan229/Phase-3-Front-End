@@ -1,13 +1,17 @@
-import React from 'react'
+import React, {useState} from 'react'
 import QuestionCard from './QuestionCard'
 
-function MainFeedContainer() {
+function MainFeedContainer({questions}) {
   return (
-  <div>
     <div className="poems-container">
-    <QuestionCard/>
+      {questions.map (question =>{
+      return (
+        <QuestionCard 
+          question={question}
+          />
+      )
+      })}
     </div>
-</div>
   )
 }
 

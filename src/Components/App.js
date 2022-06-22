@@ -1,9 +1,19 @@
+import React, {useState, useEffect}from "react";
 import MainFeedContainer from './MainFeedContainer';
 import NewQuestionForm from './NewQuestionForm';
 import SearchUser from './SearchUser';
 import TitleBar from './TitleBar';
 
 function App() {
+  const [questions, setQuestions] = useState([])
+
+  useEffect(() => {
+    fetch("http://localhost:9292/questions")
+    .then(r => r.json())
+    .then((data) => setQuestions(data)
+    )
+  }, []);
+
 
   return (
     <div className="app">
@@ -15,7 +25,7 @@ function App() {
       {formShowing ? <NewPoemForm onAddPoem={handleAddPoem} /> : null} */}
     </div>
     <MainFeedContainer 
-    // poems={poems}
+    questions={questions}
     // onDelete={removePoem}
     />
   </div>
