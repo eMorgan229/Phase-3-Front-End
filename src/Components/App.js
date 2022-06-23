@@ -6,6 +6,7 @@ import TitleBar from './TitleBar';
 
 function App() {
   const [questions, setQuestions] = useState([])
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:9292/questions")
@@ -13,19 +14,19 @@ function App() {
     .then((data) => setQuestions(data)
     )
   }, []);
-
+  const userNameQuestions = questions.filter((question) => {
+    return question.users.name.toLowerCase().includes(searchTerm.toLowerCase());
+  });
 
   return (
     <div className="app">
       <TitleBar/>
     <div className="sidebar">
       <NewQuestionForm/>
-      <SearchUser/>
-      {/* <button onClick={handleClick}>Show/hide new poem form</button>
-      {formShowing ? <NewPoemForm onAddPoem={handleAddPoem} /> : null} */}
+      <SearchUser searchTerm={searchTerm} onSearchChange={setSearchTerm} />
     </div>
     <MainFeedContainer 
-    questions={questions}
+    questions={userNameQuestions}
     // onDelete={removePoem}
     />
   </div>
