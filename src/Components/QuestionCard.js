@@ -10,7 +10,7 @@ function QuestionCard({question}) {
       .then(data => {
         console.log(data, `this is for question ${question.id}`)
         setAnswers(data)
-      })
+      },)
   }
   ,[])
 
@@ -23,6 +23,7 @@ function QuestionCard({question}) {
   return (
     <div>QuestionCard
       <h1>{question.question}</h1>
+       <h1>{question.users[0].name}</h1>
       <div>
         {answers.map(answer => {
       return (

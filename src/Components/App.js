@@ -11,23 +11,31 @@ function App() {
   useEffect(() => {
     fetch("http://localhost:9292/questions")
     .then(r => r.json())
-    .then((data) => setQuestions(data)
+    .then((data) => 
+
+    setQuestions(data)
+    
     )
   }, []);
+
+
+  function handleAddQuestion(newQuestion){
+    setQuestions([...questions, newQuestion])
+  }
+
   const userNameQuestions = questions.filter((question) => {
     return question.users.name.toLowerCase().includes(searchTerm.toLowerCase());
-  });
+  })
 
   return (
     <div className="app">
       <TitleBar/>
     <div className="sidebar">
-      <NewQuestionForm/>
-      <SearchUser searchTerm={searchTerm} onSearchChange={setSearchTerm} />
+      <NewQuestionForm onAddQuestion={handleAddQuestion}/>
+      <SearchUser/>
     </div>
     <MainFeedContainer 
-    questions={userNameQuestions}
-    // onDelete={removePoem}
+    questions={questions}
     />
   </div>
   );
