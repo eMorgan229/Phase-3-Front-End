@@ -10,23 +10,27 @@ function App() {
   useEffect(() => {
     fetch("http://localhost:9292/questions")
     .then(r => r.json())
-    .then((data) => setQuestions(data)
+    .then((data) => 
+
+    setQuestions(data)
+    
     )
   }, []);
+
+  function handleAddQuestion(newQuestion){
+    setQuestions([...questions, newQuestion])
+  }
 
 
   return (
     <div className="app">
       <TitleBar/>
     <div className="sidebar">
-      <NewQuestionForm/>
+      <NewQuestionForm onAddQuestion={handleAddQuestion}/>
       <SearchUser/>
-      {/* <button onClick={handleClick}>Show/hide new poem form</button>
-      {formShowing ? <NewPoemForm onAddPoem={handleAddPoem} /> : null} */}
     </div>
     <MainFeedContainer 
     questions={questions}
-    // onDelete={removePoem}
     />
   </div>
   );
