@@ -33,7 +33,7 @@ function QuestionCard({question, onDeleteQuestion, onUpdateLikes}) {
   return (
     <div>
       <h2>{question.question}</h2>
-      <h3>{question.user}</h3>
+      <h3>{question.user.name}</h3>
       <button onClick={handleDeleteClick}>Delete</button>
       <div>
         {answers.map(answer => {
