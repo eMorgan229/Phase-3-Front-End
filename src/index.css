@@ -2,8 +2,19 @@ body {
   margin: 0;
   font-family: sans-serif;
 }
-.app {
+.flexMe {
   display: flex;
+}
+
+.navbar{
+  /* text-align: center; */
+  align-items: center;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 20px;
+}
+
+.flexDirection{
   flex-direction: row;
 }
 .sidebar {
@@ -11,7 +22,7 @@ body {
   min-width: 12em;
   width: 28%;
   border-right: solid black 1px;
-  background: #E5FDFF;
+  background: #fff6e5;
   padding: 1em;
 }
 .sidebar > button {
@@ -45,7 +56,7 @@ input[type="submit"],
 button {
   font-weight: bold;
   font-size: 1em;
-  background: #04E8FF;
+  background: #ffff0c;
   border: solid black 1px;
   padding: 0.5em;
   cursor: pointer;

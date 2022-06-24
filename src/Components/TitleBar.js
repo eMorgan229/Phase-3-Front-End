@@ -2,7 +2,9 @@ import React from 'react'
 
 function TitleBar() {
   return (
-    <div>App Title</div>
+    <div class="navbar">
+      Unsolisticed Advice
+    </div>
   )
 }
 

@@ -4,7 +4,7 @@ function SearchUser() {
   return (
     <div>
         <input placeholder="Search for a username"/>
-        <buttton>Submit</buttton>
+        <button type="submit">Submit</button>
     </div>
   )
 }

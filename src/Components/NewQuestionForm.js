@@ -38,7 +38,7 @@ function NewQuestionForm({onAddQuestion}) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Create A Question</h1>
+      <h2>Create A Question</h2>
       <input type="text" placeholder="Your Question Here..." value={question}onChange={(e) => setQuestion(e.target.value)}/>
       <input type="text" placeholder="Create a User Name"  value={user}onChange ={(e) => setUser(e.target.value)}/>
       <button type="submit">Submit</button>
