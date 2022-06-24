@@ -3,7 +3,9 @@ import QuestionCard from './QuestionCard'
 
 function MainFeedContainer({questions, onDeleteQuestion, onUpdateLikes}) {
   return (
+    
     <div className="flexDirection">
+    
       {questions.map (question =>{
       return (
         <QuestionCard 

@@ -6,6 +6,7 @@ import TitleBar from './TitleBar';
 
 function App() {
   const [questions, setQuestions] = useState([])
+  const [user, setUser] = useState("")
   const [answers, setAnswers] = useState([])
 
 
@@ -17,9 +18,23 @@ function App() {
     
     )
   }, []);
+  
+
+  useEffect(() => {
+    fetch("http://localhost:9292/users")
+    .then(r => r.json())
+    .then((data) => 
+    setUser(data)
+    )
+  }, []);
+
 
   function handleAddQuestion(newQuestion){
     setQuestions([...questions, newQuestion])
+  }
+
+  function handleAddUser(newUser){
+    setUser([...user, newUser])
   }
 
   function handleDeleteQuestion(deleteQuestion){
@@ -50,6 +65,8 @@ function App() {
       <MainFeedContainer 
       questions={questions}
       onDeleteQuestion={handleDeleteQuestion}
+      onAddQuestion={handleAddQuestion}
+      onAddUser={handleAddUser}
       onUpdateLikes={handleLikeClick}
       />
       </div>

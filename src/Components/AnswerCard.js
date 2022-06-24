@@ -28,13 +28,15 @@ function AnswerCard({ theanswer, onUpdateLikes, onAddAnswer }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        answer: answer,
+        answer: theanswer.answer,
         likes: 0,
-        question_id: id
       }),
     })
       .then((r) => r.json())
-      .then(onAddAnswer);
+      .then(
+        console.log(theanswer.answer),
+        (onAddAnswer)
+      );
   }
 
 
@@ -47,7 +49,7 @@ function AnswerCard({ theanswer, onUpdateLikes, onAddAnswer }) {
       
       <input placeholder="add your answer..."/> 
         {/* <input placeholder="username"/> */}
-        <button onChange={handleAnswers} >submit</button>
+        <button >submit</button>
     </div>
   )
 }
